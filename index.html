@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- COPYRIGHT (C) 2023 Gavin Van Hussen -->
+<html>
+
+<head>
+    <!-- Style stuff -->
+    <!-- It doesn't let me put comments here -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+        body {
+            font-size: 20px;
+            padding-left: 20%;
+            padding-right: 20%;
+            padding-top: 1ch;
+            color: aliceblue;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .content-area {
+            align-items: baseline;
+            overflow: auto;
+            height: 12em;
+            width: 25em;
+            margin: auto;
+        }
+
+        .leftsidenav {
+            height: 100%;
+            width: 17.5%;
+            position: fixed;
+            text-align: center;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            background-color: #1e1526;
+            color: aliceblue;
+            vertical-align: middle;
+            margin-left: 1.25%;
+            
+        }
+
+        .rightsidenav {
+            height: 100%;
+            width: 17.5%;
+            position: fixed;
+            text-align: center;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            background-color: #1e1526;
+            color: aliceblue;
+            vertical-align: middle;
+            margin-right: 1.25%;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+            height: 60px;
+            /* Height of the footer */
+        }
+    </style>
+</head>
+
+<div class="leftsidenav" style="
+float: left;
+width: 300px;
+border: 3px solid rgba(107,43,55,1);
+padding: 10px;">
+    Controls text goes here<br><br>
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Euismod in pellentesque massa placerat. Diam volutpat commodo sed egestas. Integer feugiat scelerisque
+    varius morbi enim nunc. Nam at lectus urna duis convallis convallis tellus id interdum. Vulputate eu scelerisque
+    felis imperdiet. Duis at tellus at urna condimentum mattis. Ultrices dui sapien eget mi proin. Orci a scelerisque
+    purus semper eget. Mattis rhoncus urna neque viverra. Id donec ultrices tincidunt arcu non. Sed vulputate mi sit
+    amet mauris commodo. Cras adipiscing enim eu turpis egestas pretium. Auctor neque vitae tempus quam. Volutpat odio
+    facilisis mauris sit amet. Donec ac odio tempor orci dapibus ultrices. Ipsum dolor sit amet consectetur adipiscing
+    elit pellentesque habitant morbi. Elit at imperdiet dui accumsan.
+</div>
+<!-- Class info, cool graphics, navigator -->
+
+<body>
+    <img src="/images/gamelogo.png" alt="Woot" style="overflow:auto; width: 50%; height: 50%; margin: auto;">
+    <!-- Centipede logo -->
+    <br><i><u>PG24 / Programming in HTML5 - Centipede Game</u></i><br><br>
+    <!-- Description sorta (looks neat) -->
+    <div style="
+    align-items:inherit;
+    overflow:hidden;
+    margin: auto;
+    text-align: center; 
+    padding: 0.25em;
+    list-style-type: lower-roman;
+    background-color: #1e1526;
+    border: 3px solid rgba(107,43,55,1);">
+        <br><br><br>
+        ░██████╗░░█████╗░███╗░░░███╗███████╗<br>
+        ██╔════╝░██╔══██╗████╗░████║██╔════╝<br>
+        ██║░░██╗░███████║██╔████╔██║█████╗░░<br>
+        ██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░<br>
+        ╚██████╔╝██║░░██║██║░╚═╝░██║███████╗<br>
+        ░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝<br> (goes here) <!-- Placeholder for javascript game -->
+        <br><br>
+
+<section id="splash-screen" class="border flexbox show">
+    <div id = "splash-screen">
+        <div id="actual-img"></div>
+        Put Art splash here </div>
+    <div class="button">Play!</div>
+</section>
+
+<section id="game-screen" class="border">
+    <div id = "game-board">
+        <table>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="results-screen" class="border hide">
+    <div> You win! </div>
+    <div class="button">Play Again</div>
+    <div class="button">Quit</div>
+</section>
+
+
+    </div>
+</body>
+
+<div class="rightsidenav" style="
+float: right;
+width: 300px;
+border: 3px solid rgba(107,43,55,1);
+padding: 10px;">
+    Guide text goes here<br><br>
+
+    Tristique nulla aliquet enim tortor at auctor urna. Felis donec et odio pellentesque diam volutpat. Imperdiet proin
+    fermentum leo vel orci porta non pulvinar. Aliquet bibendum enim facilisis gravida neque convallis a cras semper.
+    Arcu vitae elementum curabitur vitae. Sed augue lacus viverra vitae congue eu consequat ac felis. Quis enim lobortis
+    scelerisque fermentum dui faucibus in ornare. A diam maecenas sed enim. Et netus et malesuada fames. Nullam eget
+    felis eget nunc lobortis mattis. Sed elementum tempus egestas sed. Vitae tortor condimentum lacinia quis vel eros
+    donec. Praesent tristique magna sit amet purus gravida quis. Eget egestas purus viverra accumsan in. At elementum eu
+    facilisis sed odio. Donec massa sapien faucibus et molestie ac.
+</div><!-- Demo text -->
+
+<footer id="footer">
+    Gavin Van Hussen © 2023 <!-- Dont steal my code -->
+</footer>
+
+<script type="module" src="./index.js"></script>
+
+</html>
+
+
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
+<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
