@@ -19,13 +19,20 @@ header {
 }
 
 .border {
-    border: 1px solid rgba(107,43,55,1) ;
+    border: 1px solid rgba(107, 43, 55, 1);
     margin: 2px;
     padding: 2px;
 }
 
-.hide{
-    display:none
+.hide {
+    display: none
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .button {
@@ -38,6 +45,7 @@ header {
     font-weight: 700;
     text-align: center;
 }
+
 .play-now-btn {
     background-color: aliceblue;
     border: 3px solid gray;
@@ -49,17 +57,24 @@ header {
     text-align: center;
 }
 
-tr { border: 1px solid white; }
+tr {
+    border: 1px solid white;
+}
 
-td { border: 1px dashed white; margin:1px; height: 1em; width: 1em; }
+td {
+    border: 1px dashed rgba(107, 43, 55, 1);
+    margin: 1px;
+    height: 1em;
+    width: 1em;
+}
 
-.flex-box{
+.flex-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.flex-rows{
+.flex-rows {
     flex-direction: row;
 }
 
@@ -71,4 +86,87 @@ td { border: 1px dashed white; margin:1px; height: 1em; width: 1em; }
 .debug {
     display: block;
     width: 100vw;
+}
+
+.cellrow {
+    background-color: black;
+}
+
+#win-screen {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.shake {
+    animation: shake 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-5px, -5px);
+    }
+
+    20% {
+        transform: translate(5px, 5px);
+    }
+
+    30% {
+        transform: translate(-5px, 0);
+    }
+
+    40% {
+        transform: translate(5px, 0);
+    }
+
+    50% {
+        transform: translate(-5px, 5px);
+    }
+
+    60% {
+        transform: translate(5px, -5px);
+    }
+
+    70% {
+        transform: translate(-5px, 0);
+    }
+
+    80% {
+        transform: translate(5px, 0);
+    }
+
+    90% {
+        transform: translate(-5px, -5px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+#sound-button {
+    background-color: rgb(44, 30, 55);
+    border: 2px solid rgba(107, 43, 55, 1);
+    color: aliceblue;
+}
+
+#sound-button.muted {
+    background-color: black;
+    border: 2px solid rgb(44, 30, 55);
+    color: rgba(107, 43, 55, 1);
+}
+
+#refresh-button {
+    background-color: rgb(44, 30, 55);
+    border: 2px solid rgba(107, 43, 55, 1);
+    color: aliceblue;
 }

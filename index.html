@@ -6,6 +6,10 @@
     <!-- Style stuff -->
     <!-- It doesn't let me put comments here -->
     <link rel="stylesheet" href="./css/style.css" />
+
+    <script src="./scripts/libs/jquery-3.6.3.min.js"></script>
+    <script src="./scripts/libs/buzz.min.js"></script>
+
     <style>
         body {
             font-size: 20px;
@@ -37,7 +41,7 @@
             vertical-align: middle;
             margin: auto;
             margin-left: 1.25%;
-            
+
         }
 
         .rightsidenav {
@@ -69,20 +73,32 @@ float: left;
 width: 300px;
 border: 3px solid rgba(107,43,55,1);
 padding: 10px;">
-    Controls text goes here<br><br>
+    <br>
+    WASD and spacebar<br><br><br><br>
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Euismod in pellentesque massa placerat. Diam volutpat commodo sed egestas. Integer feugiat scelerisque
-    varius morbi enim nunc. Nam at lectus urna duis convallis convallis tellus id interdum. Vulputate eu scelerisque
-    felis imperdiet. Duis at tellus at urna condimentum mattis. Ultrices dui sapien eget mi proin. Orci a scelerisque
-    purus semper eget. Mattis rhoncus urna neque viverra. Id donec ultrices tincidunt arcu non. Sed vulputate mi sit
-    amet mauris commodo. Cras adipiscing enim eu turpis egestas pretium. Auctor neque vitae tempus quam. Volutpat odio
-    facilisis mauris sit amet. Donec ac odio tempor orci dapibus ultrices. Ipsum dolor sit amet consectetur adipiscing
-    elit pellentesque habitant morbi. Elit at imperdiet dui accumsan.
+    I made it so youre limited to 2 shots on screen and not one because 2 is cooler<br><br><br><br>
+
+    Also I did the art and stuff<br><br><br><br>
+
+    I have a phobia of both bugs and mushrooms<br><br><br><br>
+
+    Click play to start the game I think and there's also a mute button and score at the bottom<br><br><br><br>
+
+    You get 1 point for damaging mushrooms and killing centipede segments, try to get a score of 100!<br><br><br><br>
 </div>
 <!-- Class info, cool graphics, navigator -->
 
 <body>
+    <div id="win-screen" style="
+    float: left;
+    width: 300px;
+    color: aliceblue;
+    background-color: #1e1526;
+    border: 3px solid rgba(107,43,55,1);
+    padding: 10px;">
+        <h1>EPIC WIN!</h1>
+        <button id="refresh-button">Play Again!</button>
+    </div>
     <img src="/images/gamelogo.png" alt="Woot" style="overflow:auto; width: 50%; height: 50%; margin: auto;">
     <!-- Centipede logo -->
     <br><i><u>PG24 / Programming in HTML5 - Centipede Game</u></i><br><br>
@@ -96,45 +112,32 @@ padding: 10px;">
     list-style-type: lower-roman;
     background-color: #1e1526;
     border: 3px solid rgba(107,43,55,1);">
-        <br><br><br>
-        ░██████╗░░█████╗░███╗░░░███╗███████╗<br>
-        ██╔════╝░██╔══██╗████╗░████║██╔════╝<br>
-        ██║░░██╗░███████║██╔████╔██║█████╗░░<br>
-        ██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░<br>
-        ╚██████╔╝██║░░██║██║░╚═╝░██║███████╗<br>
-        ░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝<br> (goes here) <!-- Placeholder for javascript game -->
-        <br><br>
+        <section id="splash-screen" class="border flexbox show">
+            <div id="splash-screen">
+                <div id="actual-img"></div>
+                ██████╗░░██████╗░██████╗░░░██╗██╗<br>
+                ██╔══██╗██╔════╝░╚════██╗░██╔╝██║<br>
+                ██████╔╝██║░░██╗░░░███╔═╝██╔╝░██║<br>
+                ██╔═══╝░██║░░╚██╗██╔══╝░░███████║<br>
+                ██║░░░░░╚██████╔╝███████╗╚════██║<br>
+                ╚═╝░░░░░░╚═════╝░╚══════╝░░░░░╚═╝<br>
+            </div>
+            <div id="play-now-btn" class="play-now-btn">Play!</div>
+        </section>
 
-<progress min="0" max = "100" value="70">70%</progress>
-<details>
-<summary>This always shows
-</summary>
-<div>
-bruh
-</div>
-</details>
-<section id="splash-screen" class="border flexbox show">
-    <div id = "splash-screen">
-        <div id="actual-img"></div>
-        Put Art splash here </div>
-    <div id="play-now-btn">Play!</div>
-</section>
+        <section id="game-screen" class="border hide">
+            <div id="game-board" class="grid-container">
+                <table>
+                    <!-- GENERATED -->
+                </table>
+            </div>
+        </section>
 
-<section id="game-screen" class="border">
-    <div id = "game-board">
-        <table>
-            <!-- GENERATED -->
-        </table>
-    </div>
-</section>
-
-<section id="results-screen" class="border hide">
-    <div> You win! </div>
-    <div class="button">Play Again</div>
-    <div class="button">Quit</div>
-</section>
-
-
+        <section id="results-screen" class="border hide">
+            <div> You win! </div>
+            <div class="button">Play Again</div>
+            <div class="button">Quit</div>
+        </section>
     </div>
 </body>
 
@@ -143,43 +146,28 @@ float: right;
 width: 300px;
 border: 3px solid rgba(107,43,55,1);
 padding: 10px;">
-    Guide text goes here<br><br>
-
-    Tristique nulla aliquet enim tortor at auctor urna. Felis donec et odio pellentesque diam volutpat. Imperdiet proin
-    fermentum leo vel orci porta non pulvinar. Aliquet bibendum enim facilisis gravida neque convallis a cras semper.
-    Arcu vitae elementum curabitur vitae. Sed augue lacus viverra vitae congue eu consequat ac felis. Quis enim lobortis
-    scelerisque fermentum dui faucibus in ornare. A diam maecenas sed enim. Et netus et malesuada fames. Nullam eget
-    felis eget nunc lobortis mattis. Sed elementum tempus egestas sed. Vitae tortor condimentum lacinia quis vel eros
-    donec. Praesent tristique magna sit amet purus gravida quis. Eget egestas purus viverra accumsan in. At elementum eu
-    facilisis sed odio. Donec massa sapien faucibus et molestie ac.
+    <br>
+    Guide :
+    <br><br>
+    Centipede is a classic arcade game released in 1981 by Atari. The player controls a small ship (known as the
+    shooter) at the bottom of the screen and must shoot a centipede as it moves down the screen. The centipede starts at
+    the top of the screen and moves down one row at a time, changing direction when it hits the edge of the screen or a
+    mushroom (which are placed randomly around the playfield). If the player shoots a segment of the centipede, it
+    breaks apart and moves independently, leaving a mushroom behind. You lose if a centipede segment reaches the bottom
+    2 rows
+    <br><br>
+    You don't actually kill a centipede in this you kill a series of evil green balls.
 </div><!-- Demo text -->
 
 <footer id="footer">
     Gavin Van Hussen © 2023 <!-- Dont steal my code -->
+    | Score : <span id="score">1</span> |
+    <button id="sound-button">Toggle Sound</button>
+    <div id="console">
+
+    </div>
 </footer>
 
 <script type="module" src="./index.js"></script>
 
 </html>
-
-
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
-<!-- 10348743925780265478026238074623874623-42478236-1937218362178-512-3726138021764180756-123218974152-821632781-36218047618407-->
