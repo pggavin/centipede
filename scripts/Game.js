@@ -287,7 +287,6 @@ export default class Game {
                 }
             }
         }
-
     }
 
     entityDestroyed() {
@@ -299,39 +298,27 @@ export default class Game {
 
     updateCentipede() {
         for (let e = 0; e < enemies.length; e++) {
-            if (enemies[e].dir) {
-                if (enemies[e].y > 28) {
-                    enemies[e].x++;
-                    enemies[e].dir = false;
-                } else {
-                    let val = board[enemies[e].y + 1][enemies[e].x];
-                    if (val === 'T')
-                        enemies[e].x++;
-                    else if (val === 'l') {
-                        mushrooms.push(new Mushroom(enemies[e].y, enemies[e].x));
-                        this.entityDestroyed();
-                        enemies.splice(e, 1);
-                        e--;
-                    } else
-                        enemies[e].y++;
-                }
+            let outOfBounds = (enemies[e].dir && enemies[e].y > 28) || ((!enemies[e].dir) && enemies[e].y < 1);
+            // If the centipede is pressed against a border
+            if (outOfBounds) {
+                enemies[e].x++;
+                enemies[e].dir = !enemies[e].dir;
+            // Move up and flip
             } else {
-                if (enemies[e].y < 1) {
+                let dirIncrement = (enemies[e].dir? 1 : -1);
+                // Whether y is increased or decreased
+                let val = board[enemies[e].y + dirIncrement][enemies[e].x];
+                if (val === 'T')
                     enemies[e].x++;
-                    enemies[e].dir = true;
-                } else {
-                    let val = board[enemies[e].y - 1][enemies[e].x];
-                    if (val === 'T')
-                        enemies[e].x++;
-                    else if (val === 'l') {
-                        mushrooms.push(new Mushroom(enemies[e].y, enemies[e].x));
-                        this.entityDestroyed();
-                        enemies.splice(e, 1);
-                        e--;
-                    } else
-                        enemies[e].y--;
-                }
-            }
+                // If the centipete is against a mushroom it goes up
+                else if (val === 'l') {
+                    mushrooms.push(new Mushroom(enemies[e].y, enemies[e].x));
+                    this.entityDestroyed();
+                    enemies.splice(e, 1);
+                    e--;
+                } else
+                    enemies[e].y += (dirIncrement);
+            }   // Increased direction
             if (enemies[e].x == 13)
                 this.gameLoss();
         }
